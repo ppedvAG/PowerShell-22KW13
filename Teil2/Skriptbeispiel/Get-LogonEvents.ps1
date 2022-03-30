@@ -35,11 +35,14 @@ AUSFÜHRLICH: Das Skript wurde mit folgenden Werten gestartet: 4624 | 5 | localh
 #>
 [cmdletBinding()]
 param(
+[ValidateSet(4624,4625,4634)]
 [Parameter(Mandatory=$true)]
 [int]$EventId,
 
+[ValidateRange(1,10)]
 [int]$Newest = 5,
 
+[ValidateScript({Test-NetConnection -Computername $PSItem -CommonTcpPort WinRM})]
 [string]$Computername = "localhost"
 )
 
