@@ -42,7 +42,8 @@ if(Test-Path -Path $Testfilespath)
     }
     else
     {
-        Write-Host -Object "Ordner bereits vorhanden" -ForegroundColor Red
+        #Write-Host -Object "Ordner bereits vorhanden" -ForegroundColor Red
+        throw "Der Ordner existiert bereits. Ziehen Sie die Verwendung von -Force in betracht"
         exit
     }
 }
